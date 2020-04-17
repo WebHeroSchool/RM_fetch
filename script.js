@@ -1,5 +1,16 @@
-const url = window.location.toString();
-let userName = 'mariarykova';
+let url = window.location.toString();
+
+let nameFromUrl = (url) => {
+    let nameArr = url.split('=');
+    let userName = nameArr[1];
+    if (userName == undefined) {
+        userName = 'mariarykova';
+    }
+    return userName;
+}
+
+let userName = nameFromUrl(url);
+
 fetch ('https://api.github.com/users/' + userName)
   .then(res => res.json())
   .then(json => {
