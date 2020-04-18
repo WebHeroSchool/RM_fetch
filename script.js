@@ -51,7 +51,9 @@ fetch ('https://api.github.com/users/' + userName)
         document.body.append(errorElement);
     };
     createError();
-  }
+  } else {
+            alert(' Профиль не найден')
+        }
 })
 
-.catch(err => alert(err + 'Такого пользователя не существует'));
+.catch(err => alert('Такого пользователя не существует'));
