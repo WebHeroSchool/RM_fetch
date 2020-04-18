@@ -55,5 +55,5 @@ fetch ('https://api.github.com/users/' + userName)
 
   .catch(function(err) {
     alert('Такого пользователя не существует', err);
-  }
+  });
 });
