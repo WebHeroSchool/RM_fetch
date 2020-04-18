@@ -3,7 +3,7 @@ let url = window.location.toString();
 let nameFromUrl = (url) => {
     let nameArr = url.split('=');
     let userName = nameArr[1];
-    if (isNaN(userName)) {
+    if (userName == undefined)) {
         userName = 'mariarykova';
     }
     return userName;
@@ -54,4 +54,6 @@ fetch ('https://api.github.com/users/' + userName)
   }
 })
 
-.catch(err => alert(err + 'Такого пользователя не существует'));
+.catch(err => {
+       alert(err + ' Такого профиля нет');
+   });
