@@ -54,6 +54,6 @@ fetch ('https://api.github.com/users/' + userName)
   }
 })
 
-.catch(err => {
-       alert(err + ' Такого профиля нет');
-   });
+.catch(function(err) {
+    alert('Такого пользователя нет', err);
+  });
