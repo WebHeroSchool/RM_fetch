@@ -3,7 +3,7 @@ let url = window.location.toString();
 let nameFromUrl = (url) => {
     let nameArr = url.split('=');
     let userName = nameArr[1];
-    if (userName == undefined)) {
+    if (userName == undefined) {
         userName = 'mariarykova';
     }
     return userName;
@@ -49,8 +49,8 @@ fetch ('https://api.github.com/users/' + userName)
         let errorElement = document.createElement('h1');
         errorElement.innerHTML = ' Информация о пользователе не доступна. ';
         document.body.append(errorElement);
-    };
-    createError();
+      };
+      createError();
   }
 })
 
