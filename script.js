@@ -54,4 +54,4 @@ fetch ('https://api.github.com/users/' + name)
   }
 })
 
- .catch(() => document.body.innerHTML = '<h1>Такого пользователя не сущестует</h1>');
+ .catch(err => alert(err + ' Данный пользователь не найден'));
