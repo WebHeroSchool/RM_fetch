@@ -47,11 +47,9 @@ fetch ('https://api.github.com/users/' + name)
     } else {
       let createError = () => {
         let errorElement = document.createElement('h1');
-        errorElement.innerText = ' Информация о пользователе не доступна. ';
+        errorElement.innerText = ' Информация о данном пользователе не найдена ';
         document.body.append(errorElement);
       };
       createError();
   }
 })
-
- .catch(err => alert(err + ' Данный пользователь не найден'));
