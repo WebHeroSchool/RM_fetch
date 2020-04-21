@@ -45,15 +45,8 @@ fetch ('https://api.github.com/users/' + userName)
       createAvatar();
       createBio();
     } else {
-      let createError = () => {
-        let errorElement = document.createElement('h1');
-        errorElement.innerHTML = ' Информация о пользователе не доступна. ';
-        document.body.append(errorElement);
-      };
-      createError();
+      alert('Пользователь не найден')
   }
 })
 
-.catch(function(err) {
-    alert('Такого пользователя нет', err);
-  });
+.catch(err => alert(`${err} (Информация о пользователе не доступна)`))
