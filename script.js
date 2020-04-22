@@ -9,9 +9,9 @@ let nameFromUrl = (url) => {
     return userName;
 }
 
-let name = nameFromUrl(url);
+let nameUser = nameFromUrl(url);
 
-fetch ('https://api.github.com/users/' + name)
+fetch ('https://api.github.com/users/' + nameUser)
   .then(res => res.json())
   .then(json => {
     let avatar = json.avatar_url;
