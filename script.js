@@ -3,7 +3,7 @@ let url = window.location.toString();
 let nameFromUrl = (url) => {
     let nameArr = url.split('=');
     let userName = nameArr[1];
-    if (userName === undefined) {
+    if (userName == undefined){
         userName = 'mariarykova';
     }
     return userName;
@@ -15,7 +15,7 @@ fetch ('https://api.github.com/users/' + nameUser)
   .then(res => res.json())
   .then(json => {
     let avatar = json.avatar_url;
-    let name = json.name;
+    let name = json.login;
     let bio = json.bio;
     let profile = json.html_url;
     if (nameUser) {
@@ -39,17 +39,20 @@ fetch ('https://api.github.com/users/' + nameUser)
       elementLink.href = profile;
       document.body.append(elementLink);
       elementLink.append(elementName);
-    };
+    }
 
       createProfile();
       createAvatar();
       createBio();
-    } else {
+    }
+    else {
       let createError = () => {
         let errorElement = document.createElement('h1');
         errorElement.innerText = ' Информация о данном пользователе не найдена ';
         document.body.append(errorElement);
-      };
+      }
       createError();
   }
 })
+
+.catch(err => alert(err + ' Информация о данном пользователе не найдена'));
