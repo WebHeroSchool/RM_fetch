@@ -18,7 +18,7 @@ fetch ('https://api.github.com/users/' + nameUser)
     let name = json.name;
     let bio = json.bio;
     let profile = json.html_url;
-    if (name) {
+    if (nameUser) {
 
     let createAvatar = () => {
       let newAvatar = document.createElement('img');
