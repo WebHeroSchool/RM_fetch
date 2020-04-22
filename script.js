@@ -9,16 +9,16 @@ let nameFromUrl = (url) => {
     return userName;
 }
 
-let nameUser = nameFromUrl(url);
+let name = nameFromUrl(url);
 
-fetch ('https://api.github.com/users/' + nameUser)
+fetch ('https://api.github.com/users/' + name)
   .then(res => res.json())
   .then(json => {
     let avatar = json.avatar_url;
     let name = json.login;
     let bio = json.bio;
     let profile = json.html_url;
-    if (nameUser) {
+    if (name) {
 
     let createAvatar = () => {
       let newAvatar = document.createElement('img');
