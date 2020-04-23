@@ -14,7 +14,7 @@ let name = nameFromUrl(url);
 let getDate = new Promise((resolve, reject) => {
   let currentDate = new Date();
   setTimeOut(() => currentDate ? resolve(currentDate) : reject('Ошибка загрузки времени'), 3000)
-}
+});
 
 let getUserInfo = fetch ('https://api.github.com/users/' + name)
 
