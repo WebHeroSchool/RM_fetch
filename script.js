@@ -11,13 +11,25 @@ let nameFromUrl = (url) => {
 
 let name = nameFromUrl(url);
 
-fetch ('https://api.github.com/users/' + name)
-  .then(res => res.json())
-  .then(json => {
-    let avatar = json.avatar_url;
-    let name = json.login;
-    let bio = json.bio;
-    let profile = json.html_url;
+let getDate = new Promise((resolve, reject) => {
+  let currentDate = new Date();
+  setTimeOut(() => currentDate ? resolve(currentDate) : reject('Ошибка загрузки времени'), 3000)
+}
+
+let getUserInfo = fetch ('https://api.github.com/users/' + name)
+
+Promise.all([getUserInfo, getDate])
+.then(([request, date]) => {
+      requestInfo = request;
+      requestDate = date;
+  })
+
+  .then(res => requestInfo.json())
+  .then(userInfo => {
+    let avatar = userInfo.avatar_url;
+    let name = userInfo.login;
+    let bio = userInfo.bio;
+    let profile = userInfo.html_url;
     if (name) {
 
     let createAvatar = () => {
@@ -41,9 +53,19 @@ fetch ('https://api.github.com/users/' + name)
       elementLink.append(elementName);
     }
 
+    let createDate = () => {
+      let elementDate = document.createElement('p');
+      elementDate.innerHTML = requestDate;
+      document.body.append(elementDate);
+    }
+
+    let elementPreloader = document.getElementById('preloader');
+    elementPreloader.classList.add('hidden');
+
       createProfile();
       createAvatar();
       createBio();
+      createDate();
     }
     else {
       let createError = () => {
