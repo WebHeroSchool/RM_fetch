@@ -68,12 +68,8 @@ Promise.all([getUserInfo, getDate])
       createDate();
     }
     else {
-      let createError = () => {
-        let errorElement = document.createElement('h1');
-        errorElement.innerText = ' Информация о данном пользователе не найдена ';
-        document.body.append(errorElement);
-      }
-      createError();
+      alert(' Информация о данном пользователе не найдена ');
+    }
   }
 })
 
