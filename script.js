@@ -69,6 +69,7 @@ Promise.all([getUserInfo, getDate])
     }
     else {
       alert(' Информация о данном пользователе не найдена ');
+      elementPreloader.classList.add('hidden');
     }
 })
 
