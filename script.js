@@ -70,7 +70,6 @@ Promise.all([getUserInfo, getDate])
     else {
       alert(' Информация о данном пользователе не найдена ');
     }
-  }
 })
 
 .catch(err => alert(err + ' Информация о данном пользователе не найдена'));
