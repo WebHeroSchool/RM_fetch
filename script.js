@@ -68,8 +68,8 @@ Promise.all([getUserInfo, getDate])
       createDate();
     }
     else {
+      preloader.style.display = 'none';
       alert(' Информация о данном пользователе не найдена ');
-      elementPreloader.classList.add('hidden');
     }
 })
 
